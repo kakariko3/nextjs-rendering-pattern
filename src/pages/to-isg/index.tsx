@@ -2,20 +2,24 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { ChangeEvent, useState } from 'react';
 
-import { initialPageIds } from '@/const/page-ids';
+import { useIsgPageIdStore } from '@/stores/isg-page-id';
 import styles from '@/styles/to-static/ToStatic.module.scss';
 
 export default function ToIsg() {
-  const [text, setText] = useState<string>('');
-  const [pageIds, setPageIds] = useState<string[]>(initialPageIds);
+  const pageIds = useIsgPageIdStore((state) => state.pageIds);
+  const addPageId = useIsgPageIdStore((state) => state.addPageId);
+
+  const [id, setId] = useState<string>('');
+  // const [pageIds, setPageIds] = useState<string[]>(initialPageIds);
 
   function handleInputText(event: ChangeEvent<HTMLInputElement>) {
-    setText(event.target.value);
+    setId(event.target.value);
   }
 
   function handleClickButton() {
-    setPageIds((prev) => [...prev, text]);
-    setText('');
+    // setPageIds((prev) => [...prev, text]);
+    addPageId(id);
+    setId('');
   }
 
   return (
@@ -33,7 +37,7 @@ export default function ToIsg() {
           <div className='mt-[30px]'>
             <input
               type='text'
-              value={text}
+              value={id}
               placeholder='ID'
               onChange={handleInputText}
               className='mr-[4px] border-[1px] border-gray-400 px-[4px]'

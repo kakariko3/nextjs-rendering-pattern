@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { initialPageIds } from '@/const/page-ids';
+import { initialPageIds } from '@/stores/isg-isr-page-id';
 import styles from '@/styles/static/Static.module.scss';
 import { WorldTimeApi } from '@/types/world-time-api';
 
