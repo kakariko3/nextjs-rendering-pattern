@@ -59,7 +59,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const res = await fetch('http://worldtimeapi.org/api/timezone/Asia/Tokyo');
+  const res = await fetch('https://worldtimeapi.org/api/timezone/Asia/Tokyo');
   const data = await res.json();
 
   const { id } = params as PathParams;

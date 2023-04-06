@@ -10,7 +10,7 @@ export default function Static() {
   const [time, setTime] = useState<Date>();
 
   async function handleClickButton() {
-    const res = await fetch('http://worldtimeapi.org/api/timezone/Asia/Tokyo');
+    const res = await fetch('https://worldtimeapi.org/api/timezone/Asia/Tokyo');
     const data: WorldTimeApi = await res.json();
 
     setTime(toDate(new Date(data.datetime)));

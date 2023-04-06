@@ -35,7 +35,7 @@ const Ssr: NextPage<Props> = ({ worldTime }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const res = await fetch('http://worldtimeapi.org/api/timezone/Asia/Tokyo');
+  const res = await fetch('https://worldtimeapi.org/api/timezone/Asia/Tokyo');
   const data = await res.json();
 
   return {
